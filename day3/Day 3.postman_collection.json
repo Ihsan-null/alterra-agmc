@@ -1,0 +1,1773 @@
+{
+	"info": {
+		"_postman_id": "df20100e-3404-4c68-a221-1c5577f2f3b6",
+		"name": "Day 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16659563"
+	},
+	"item": [
+		{
+			"name": "v1/books",
+			"item": [
+				{
+					"name": "{book id}",
+					"item": [
+						{
+							"name": "v1GetBookById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/books/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"books",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "v1GetBookById",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 16 Sep 2022 08:27:58 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "119"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"book\": {\n        \"Id\": 2,\n        \"Title\": \"The House of Mirth\",\n        \"Author\": \"Edith Wharton\",\n        \"UserId\": 2\n    },\n    \"message\": \"Success retrieve a book\"\n}"
+								}
+							]
+						},
+						{
+							"name": "v1UpdateBookById",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/books/:id?title=A Scanner Darkly&author=Philip K. Dick",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"books",
+										":id"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "A Scanner Darkly"
+										},
+										{
+											"key": "author",
+											"value": "Philip K. Dick"
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "BookNotFound",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/books/:id?title=A Scanner Darkly&author=Philip K. Dick",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"books",
+												":id"
+											],
+											"query": [
+												{
+													"key": "title",
+													"value": "A Scanner Darkly"
+												},
+												{
+													"key": "author",
+													"value": "Philip K. Dick"
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 16 Sep 2022 08:33:57 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "29"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Book not found\"\n}"
+								},
+								{
+									"name": "UnauthorizedUpdate",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/books/:id?title=A Scanner Darkly&author=Philip K. Dick",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"books",
+												":id"
+											],
+											"query": [
+												{
+													"key": "title",
+													"value": "A Scanner Darkly"
+												},
+												{
+													"key": "author",
+													"value": "Philip K. Dick"
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 16 Sep 2022 08:35:37 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "54"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"You are unauthorize to update this data\"\n}"
+								},
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/books/:id?title=A Scanner Darkly&author=Philip K. Dick",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"books",
+												":id"
+											],
+											"query": [
+												{
+													"key": "title",
+													"value": "A Scanner Darkly"
+												},
+												{
+													"key": "author",
+													"value": "Philip K. Dick"
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 16 Sep 2022 08:36:21 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "116"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"book\": {\n        \"Id\": 1,\n        \"Title\": \"A Scanner Darkly\",\n        \"Author\": \"Philip K. Dick\",\n        \"UserId\": 1\n    },\n    \"message\": \"Success update a book\"\n}"
+								},
+								{
+									"name": "NoJWT",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/books/:id?title=A Scanner Darkly&author=Philip K. Dick",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"books",
+												":id"
+											],
+											"query": [
+												{
+													"key": "title",
+													"value": "A Scanner Darkly"
+												},
+												{
+													"key": "author",
+													"value": "Philip K. Dick"
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 16 Sep 2022 08:36:35 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "39"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"missing or malformed jwt\"\n}"
+								}
+							]
+						},
+						{
+							"name": "v1DeleteBookById",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/books/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"books",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "BookNotFound",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": null
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 16 Sep 2022 08:42:37 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "29"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Book not found\"\n}"
+								},
+								{
+									"name": "NoJWT",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": null
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 16 Sep 2022 08:43:20 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "39"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"missing or malformed jwt\"\n}"
+								},
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 16 Sep 2022 08:43:43 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "119"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"book\": [\n        {\n            \"Id\": 2,\n            \"Title\": \"The House of Mirth\",\n            \"Author\": \"Edith Wharton\",\n            \"UserId\": 2\n        }\n    ],\n    \"message\": \"Success delete a book\"\n}"
+								},
+								{
+									"name": "UnauthorizedDelete",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 16 Sep 2022 08:44:58 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "54"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"You are unauthorize to delete this data\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "v1GetBooks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/books",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"books"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "v1GetBooks",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/books",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"books"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 16 Sep 2022 08:27:40 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "188"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"book\": [\n        {\n            \"Id\": 1,\n            \"Title\": \"A Time to Kill\",\n            \"Author\": \"John Grisham\",\n            \"UserId\": 0\n        },\n        {\n            \"Id\": 2,\n            \"Title\": \"The House of Mirth\",\n            \"Author\": \"Edith Wharton\",\n            \"UserId\": 0\n        }\n    ],\n    \"message\": \"Success retrieve book\"\n}"
+						}
+					]
+				},
+				{
+					"name": "v1CreateBook",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjM1NzQ4NjV9.YOFmVb-42-I2chou56c1A5DJ7p0J4RnXU7yB0LHY9aQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/books?id=1&title=The Sun Also Rises&Author=Ernest Hemingway",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"books"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "title",
+									"value": "The Sun Also Rises"
+								},
+								{
+									"key": "Author",
+									"value": "Ernest Hemingway"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ErrorJWT",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/books?id=1&title=The Sun Also Rises&Author=Ernest Hemingway",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"books"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										},
+										{
+											"key": "title",
+											"value": "The Sun Also Rises"
+										},
+										{
+											"key": "Author",
+											"value": "Ernest Hemingway"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 16 Sep 2022 08:26:09 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"missing or malformed jwt\"\n}"
+						},
+						{
+							"name": "WithJWT",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/books?id=1&title=The Sun Also Rises&Author=Ernest Hemingway",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"books"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										},
+										{
+											"key": "title",
+											"value": "The Sun Also Rises"
+										},
+										{
+											"key": "Author",
+											"value": "Ernest Hemingway"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 16 Sep 2022 08:26:56 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "118"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"book\": {\n        \"Id\": 1,\n        \"Title\": \"The Sun Also Rises\",\n        \"Author\": \"Ernest Hemingway\",\n        \"UserId\": 1\n    },\n    \"message\": \"Success create book\"\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZXhwIjoxNjYzNTYxNjQ4fQ.qKPKXRn5A9dBS18-lfqVSYKOuw-AzoJKL-YvgFv4Urg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"nunu@example.com\",\n    \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"nunu@example.com\",\n    \"password\": \"12345678\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "User-Id",
+									"value": "Echo/3.0"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 16 Sep 2022 08:07:45 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "154"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"success\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjM1NzQ4NjV9.YOFmVb-42-I2chou56c1A5DJ7p0J4RnXU7yB0LHY9aQ\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "v1/users",
+			"item": [
+				{
+					"name": "{user id}",
+					"item": [
+						{
+							"name": "v1GetUserById",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjM1ODAwNjd9.vlL2Jr5vAU85BIxmieyZe3VX0m7de2o-wEUf8GZH-oM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/users/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "NoJWT",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 16 Sep 2022 09:37:32 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "39"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"missing or malformed jwt\"\n}"
+								},
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 16 Sep 2022 09:37:55 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "275"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Success retrieve users\",\n    \"user\": {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-09-16T16:34:03.208+07:00\",\n        \"UpdatedAt\": \"2022-09-16T16:34:03.208+07:00\",\n        \"DeletedAt\": null,\n        \"name\": \"ihsan\",\n        \"email\": \"ihsan@example.com\",\n        \"password\": \"$2a$10$BVNjt8WSUVHIM3SEG28JjuyZg518zlZ7g6b2.ONtpe7TbxVC..PL6\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "v1UpdateUserById",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NjM1ODE0MTJ9.CVrFuTbZmPhCvhHSerWNWRGuw4m2KvrET_NVVF0VlFg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"ihsanulz\",\n    \"email\": \"ihsanulz@example.com\",\n    \"password\": \"onetwothree\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/users/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "NoJWT",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"ihsanulz\",\n    \"email\": \"ihsanulz@example.com\",\n    \"password\": \"onetwothree\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 16 Sep 2022 09:44:17 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "39"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"missing or malformed jwt\"\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"ihsanulz\",\n    \"email\": \"ihsanulz@example.com\",\n    \"password\": \"onetwothree\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 16 Sep 2022 09:55:40 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "53"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"You are unauthorize to access this API\"\n}"
+								},
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"ihsanulz\",\n    \"email\": \"ihsanulz@example.com\",\n    \"password\": \"onetwothree\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 16 Sep 2022 10:04:06 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "262"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Success update a user\",\n    \"user\": {\n        \"ID\": 0,\n        \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n        \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n        \"DeletedAt\": null,\n        \"name\": \"ihsanulz\",\n        \"email\": \"ihsanulz@example.com\",\n        \"password\": \"$2a$10$z8VpYoGXXqhaD7fABe.mgOeMOvBmgCFk358D7sD7ig4hHLjGctCkG\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "v1DeleteUserById",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjM1ODAwNjd9.vlL2Jr5vAU85BIxmieyZe3VX0m7de2o-wEUf8GZH-oM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/users/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "NoJWT",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 16 Sep 2022 09:54:27 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "39"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"missing or malformed jwt\"\n}"
+								},
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 16 Sep 2022 09:54:47 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "200"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Success delete a user\",\n    \"user\": {\n        \"ID\": 0,\n        \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n        \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n        \"DeletedAt\": \"2022-09-16T16:54:47.17+07:00\",\n        \"name\": \"\",\n        \"email\": \"\",\n        \"password\": \"\"\n    }\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 16 Sep 2022 09:55:21 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "53"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"You are unauthorize to access this API\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "v1GetUsers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjM1ODAwNjd9.vlL2Jr5vAU85BIxmieyZe3VX0m7de2o-wEUf8GZH-oM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "tono@example.com",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "NoJWT",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "tono@example.com",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 16 Sep 2022 09:36:26 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"missing or malformed jwt\"\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "tono@example.com",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 16 Sep 2022 09:37:02 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "506"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success retrieve users\",\n    \"user\": [\n        {\n            \"ID\": 1,\n            \"CreatedAt\": \"2022-09-16T16:34:03.208+07:00\",\n            \"UpdatedAt\": \"2022-09-16T16:34:03.208+07:00\",\n            \"DeletedAt\": null,\n            \"name\": \"ihsan\",\n            \"email\": \"ihsan@example.com\",\n            \"password\": \"$2a$10$BVNjt8WSUVHIM3SEG28JjuyZg518zlZ7g6b2.ONtpe7TbxVC..PL6\"\n        },\n        {\n            \"ID\": 2,\n            \"CreatedAt\": \"2022-09-16T16:36:58.824+07:00\",\n            \"UpdatedAt\": \"2022-09-16T16:36:58.824+07:00\",\n            \"DeletedAt\": null,\n            \"name\": \"nunu\",\n            \"email\": \"nunu@example.com\",\n            \"password\": \"$2a$10$HJgr2qDlXsKY.eJBhdf01umD0M.ce3A30a65tUC6gDsJHrD9FxbRW\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "v1CreateUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"nunu\",\r\n    \"email\": \"nunu@example.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "InvalidRequest",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"ihsan\",\r\n    \"email\": \"ihsan@example.com\",\r\n    \"password\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 16 Sep 2022 09:18:54 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "97"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Key: 'User.Password' Error:Field validation for 'Password' failed on the 'min' tag\"\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"ihsan\",\r\n    \"email\": \"ihsan@example.com\",\r\n    \"password\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 16 Sep 2022 09:19:16 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "272"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success create user\",\n    \"user\": {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-09-16T16:19:16.201+07:00\",\n        \"UpdatedAt\": \"2022-09-16T16:19:16.201+07:00\",\n        \"DeletedAt\": null,\n        \"name\": \"ihsan\",\n        \"email\": \"ihsan@example.com\",\n        \"password\": \"$2a$10$51QX..fffo3RVYyj9qGD2eOJzJWi9rn3f/UgZFs9qt4CRTPzWp.rK\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZXhwIjoxNjYzNTYxNjQ4fQ.qKPKXRn5A9dBS18-lfqVSYKOuw-AzoJKL-YvgFv4Urg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"nunu@example.com\",\n    \"password\": \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/v1/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ihsan@example.com\",\n    \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 Sep 2022 09:34:27 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "160"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"login success\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjM1ODAwNjd9.vlL2Jr5vAU85BIxmieyZe3VX0m7de2o-wEUf8GZH-oM\"\n}"
+				},
+				{
+					"name": "InvalidRequest",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ihsan@example.com\",\n    \"password\": \"1234567\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"login"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 Sep 2022 09:35:29 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "98"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Key: 'Login.Password' Error:Field validation for 'Password' failed on the 'min' tag\"\n}"
+				},
+				{
+					"name": "InvalidEmailOrPassword",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ihsan@example.com\",\n    \"password\": \"123456788\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"login"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 16 Sep 2022 09:35:45 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "40"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"invalid email or password\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
